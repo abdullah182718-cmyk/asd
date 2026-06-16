@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="موقع أذكاري، منصتك الشاملة للأذكار والأدعية اليومية، أذكار الصباح والمساء، الرقية الشرعية، وأدعية من القرآن والسنة.">
+    <meta name="keywords" content="اذكار، أذكار، دعاء، ادعية، ذكر، تسبيح، اذكار الصباح، اذكار المساء، اذكار الصلاة، اذكار الوضوء، اذكار النوم، الرقية الشرعية, Azkar, Athkar, Doaa">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>فضل الدعاء | حصنك اليومي</title>
+    <link rel="icon" type="image/x-icon" href="icon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="azkar-page">
+        <a href="../index.html" class="back-home">
+            <i class="fa-solid fa-arrow-right"></i>
+            الرئيسية
+        </a>
+        
+        <div class="page-header">
+            <h1><i class="fa-solid fa-hands-praying"></i> فضل الدعاء</h1>
+            <div class="subhead">أحاديث في فضل الدعاء والتضرع</div>
+        </div>
+
+        <div id="azkarContainer"></div>
+        
+        <div class="footer-note">
+            <i class="fa-regular fa-heart"></i>
+            الدعاء هو العبادة
+        </div>
+    </div>
+    
+    <div id="toastMsg" class="toast-msg"></div>
+
+    <script src="shared.js"></script>
+    
+    <script>
+    (function() {
+        'use strict';
+        
+        const pageSlug = 'dua-virtue';
+        const pageCategory = 'فضل الدعاء';
+        const STORAGE_KEY = 'dua-virtue_counts';
+        
+        const azkarData = [
+            {
+                text: "الدعاءُ طاعةٌ لله، وامتثال لأمره\nوَقَالَ رَبُّكُمُ ادْعُونِي أَسْتَجِبْ لَكُمْ إِنَّ الَّذِينَ يَسْتَكْبِرُونَ عَنْ عِبَادَتِي سَيَدْخُلُونَ جَهَنَّمَ دَاخِرِينَ",
+                note: "سورة غافر - 60",
+                maxCount: 1
+            },
+            {
+                text: "الدُّعَاءُ هُوَ الْعِبَادَةُ",
+                note: "رواه الترمذي وابن ماجه، وصححه الألباني",
+                maxCount: 1
+            },
+            {
+                text: "لَيْسَ شَيْءٌ أَكْرَمَ عَلَى اللَّهِ تَعَالَى مِنْ الدُّعَاءِ",
+                note: "رواه أحمد والبخاري، وابن ماجة، والترمذي والحاكم",
+                maxCount: 1
+            },
+            {
+                text: "مَنْ لَمْ يَسْأَلْ اللَّهَ يَغْضَبْ عَلَيْهِ",
+                note: "رواه الترمذي وابن ماجة",
+                maxCount: 1
+            },
+            {
+                text: "أَعْجَزُ النَّاسِ مَنْ عَجَزَ عَنْ الدُّعَاءِ وَأَبْخَلُ النَّاسِ مَنْ بَخِلَ بِالسَّلَامِ",
+                note: "رواه ابن حبان وصححه الألباني",
+                maxCount: 1
+            },
+            {
+                text: "مَنْ فُتِحَ لَهُ مِنْكُمْ بَابُ الدُّعَاءِ فُتِحَتْ لَهُ أَبْوَابُ الرَّحْمَةِ وَمَا سُئِلَ اللَّهُ شَيْئًا يَعْنِي أَحَبَّ إِلَيْهِ مِنْ أَنْ يُسْأَلَ الْعَافِيَةَ وَقَالَ رَسُولُ اللَّهِ صَلَّى اللهم عَلَيْهِ وَسَلَّمَ إِنَّ الدُّعَاءَ يَنْفَعُ مِمَّا نَزَلَ وَمِمَّا لَمْ يَنْزِلْ",
+                note: "رواه الترمذي وحسنه الألباني",
+                maxCount: 1
+            },
+            {
+                text: "يقول الله عز وجل: أَنَا عِنْدَ ظِنِّ عَبْدِي بِي وَأَنَا مَعَهُ إِذَا دَعَانِي",
+                note: "رواه مسلم",
+                maxCount: 1
+            },
+            {
+                text: "أَقْرَبُ مَا يَكُونُ الْعَبْدُ مِنْ رَبِّهِ عَزَّ وَجَلَّ وَهُوَ سَاجِدٌ ، فَأَكْثِرُوا الدُّعَاءَ",
+                note: "رواه مسلم - فضل الدعاء في السجود",
+                maxCount: 1
+            },
+            {
+                text: "إِنَّ فِي اللَّيْلِ لَسَاعَةٌ لَا يُوَافِقُهَا رَجُلٌ مُسْلِمٌ يَسْأَلُ اللَّهَ تَعَالَى مِنْ أَمْرِ الدُّنْيَا وَالْآخِرَةِ إِلَّا أَعْطَاهُ إِيَّاهُ وَذَلِكَ كُلَّ لَيْلَةٍ",
+                note: "رواه مسلم - فضل الدعاء بالليل",
+                maxCount: 1
+            },
+            {
+                text: "مَا مِنْ عَبْدٍ مُسْلِمٍ يَدْعُو لِأَخِيهِ بِظَهْرِ الْغَيْبِ إِلَّا قَالَ الْمَلَكُ : وَلَكَ بِمِثْلٍ",
+                note: "رواه مسلم - فضل الدعاء للمسلمين بظهر الغيب",
+                maxCount: 1
+            }
+        ];
+
+        counts = AzkarApp.loadCounts(STORAGE_KEY, azkarData.length);
+
+        function render() {
+            if (!container) return;
+            container.innerHTML = azkarData.map((item, idx) => {
+                return AzkarApp.renderCard(item, idx, pageSlug);
+            }).join('');
+            AzkarApp.bindAzkarEvents(azkarData, pageSlug, pageCategory, incrementCount, resetCount);
+        }
+
+        function incrementCount(index) {
+            AzkarApp.incrementCount(index, azkarData, STORAGE_KEY, render);
+        }
+
+        function resetCount(index) {
+            AzkarApp.resetCount(index, STORAGE_KEY, render);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            if (counts.length !== azkarData.length) {
+                counts = AzkarApp.loadCounts(STORAGE_KEY, azkarData.length);
+            }
+            render();
+        });
+    })();
+    </script>
+</body>
+</html>

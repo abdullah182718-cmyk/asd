@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="أذكار الطعام والشراب والضيف - ما يقوله المسلم عند الأكل والشرب والضيافة">
+    <meta name="keywords" content="اذكار الطعام، اذكار الشرب، اذكار الضيف، بسم الله، الحمد لله، دعاء الطعام، دعاء الشرب">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>أذكار الطعام والشراب | حصنك اليومي</title>
+    <link rel="icon" type="image/x-icon" href="../icon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="azkar-page">
+        <a href="../index.html" class="back-home">
+            <i class="fa-solid fa-arrow-right"></i>
+            الرئيسية
+        </a>
+        
+        <div class="page-header">
+            <h1><i class="fa-solid fa-utensils"></i> أذكار الطعام والشراب</h1>
+            <div class="subhead">الأذكار المأثورة عند الأكل والشرب والضيافة</div>
+        </div>
+
+        <div id="azkarContainer"></div>
+        
+        <div class="footer-note">
+            <i class="fa-regular fa-heart"></i>
+            اللهم اجعلنا من الذاكرين الله كثيراً والذاكرات
+        </div>
+    </div>
+    
+    <div id="toastMsg" class="toast-msg"></div>
+
+    <!-- السكربت المركزي -->
+    <script src="shared.js"></script>
+    
+    <!-- سكربت الصفحة -->
+    <script>
+    (function() {
+        'use strict';
+        
+        // ============ إعدادات الصفحة ============
+        const pageSlug = 'food-azkar';
+        const pageCategory = 'أذكار الطعام والشراب';
+        const STORAGE_KEY = 'food_azkar_counts';
+        
+        // ============ البيانات ============
+        const azkarData = [
+            {
+                text: "بِسْمِ اللهِ.",
+                note: "متفرقاً",
+                maxCount: 1
+            },
+            {
+                text: "بِسْمِ اللهِ.\n\nفإنْ نسي في أَوَّلِهِ، فَليَقُلْ:\n\nبِسْمِ اللَّه أَوَّلَهُ وَآخِرَهُ.",
+                note: "عند البدء في الأكل",
+                maxCount: 1
+            },
+            {
+                text: "اَللَّهُمَّ بَارِكْ لَنَا فِيهِ, وَزِدْنَا مِنْهُ.",
+                note: "عند شرب اللبن",
+                maxCount: 1
+            },
+            {
+                text: "الْحَمْدُ للهِ الَّذِي أَطْعَمَنِي هَذَا, وَرَزَقَنِيهِ مِنْ غَيْرِ حَوْلٍ مِّنِّي وَلاَ قُوَّةٍ.",
+                note: "عند الفراغ من الطعام",
+                maxCount: 1
+            },
+            {
+                text: "الْحَمْدُ لِلَّهِ كَثِيرًا طَيِّبًا مُبَارَكًا فِيهِ غَيْرَ مَكْفِيٍّ وَلَا مُوَدَّعٍ وَلَا مُسْتَغْنًى عَنْهُ رَبَّنَا.\n\nغُفِرَ لَهُ مَا تَقَدَّمَ مِنْ ذَنْبِهِ.",
+                note: "عند الفراغ من الطعام والشراب",
+                maxCount: 1
+            },
+            {
+                text: "أَفْطَرَ عِنْدَكُمُ الصَّائِمُونَ، وَأَكَلَ طَعَامَكُمُ الأَبْرَارُ، وَصَلَّتْ عَلَيْكُمُ الْمَلائِكَةُ.",
+                note: "دعاء الضيف لصاحب الطعام",
+                maxCount: 1
+            },
+            {
+                text: "كَانَ صَلَّى اللهُ عَلَيْهِ وَسَلَّمَ يَشْرَبُ فِي ثَلاَثَةِ أَنْفَاسٍ، إِذَا أَدْنَى الإِنَاءَ إِلَى فَمِهِ سَمَّى اللهَ تَعَالَى، وَإِذَا أَخَّرَهُ حَمِدَ اللهَ تَعَالَى، يَفْعَلُ ذَلِكَ ثَلاَثَ مَرَّاتٍ.",
+                note: "هدى النبي ﷺ في الشرب",
+                maxCount: 1
+            }
+        ];
+
+        // ============ التهيئة ============
+        counts = AzkarApp.loadCounts(STORAGE_KEY, azkarData.length);
+
+        // ============ التصيير ============
+        function render() {
+            if (!container) return;
+
+            container.innerHTML = azkarData.map((item, idx) => {
+                return AzkarApp.renderCard(item, idx, pageSlug);
+            }).join('');
+
+            AzkarApp.bindAzkarEvents(azkarData, pageSlug, pageCategory, incrementCount, resetCount);
+        }
+
+        function incrementCount(index) {
+            AzkarApp.incrementCount(index, azkarData, STORAGE_KEY, render);
+        }
+
+        function resetCount(index) {
+            AzkarApp.resetCount(index, STORAGE_KEY, render);
+        }
+
+        // ============ البدء ============
+        document.addEventListener('DOMContentLoaded', () => {
+            if (counts.length !== azkarData.length) {
+                counts = AzkarApp.loadCounts(STORAGE_KEY, azkarData.length);
+            }
+            render();
+        });
+    })();
+    </script>
+</body>
+</html>

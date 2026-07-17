@@ -7,27 +7,27 @@
 
 // ============ مصفوفة التصنيفات ============
 const azkarCategories = [
-    { id: 1, title: "أذكار الصباح", desc: "أذكار تقال في الصباح بعد الفجر", iconBg: "#edf6f2", iconColor: "#0c5943", iconType: "sunrise", url: "sabah.html" },
-    { id: 2, title: "أذكار المساء", desc: "أذكار تقال في المساء بعد العصر", iconBg: "#edf6f2", iconColor: "#0c5943", iconType: "sunset", url: "masaa.html" },
-    { id: 3, title: "أذكار بعد الصلاة", desc: "ما يقال عقب الصلوات المكتوبة", iconBg: "#edf6f2", iconColor: "#0c5943", iconType: "prayer", url: "after-prayer.html" },
+    { id: 1, title: "اذكار الصباح", desc: "أذكار تقال في الصباح بعد الفجر", iconBg: "#edf6f2", iconColor: "#0c5943", iconType: "sunrise", url: "sabah.html" },
+    { id: 2, title: "اذكار المساء", desc: "أذكار تقال في المساء بعد العصر", iconBg: "#edf6f2", iconColor: "#0c5943", iconType: "sunset", url: "masaa.html" },
+    { id: 3, title: "اذكار بعد الصلاة", desc: "ما يقال عقب الصلوات المكتوبة", iconBg: "#edf6f2", iconColor: "#0c5943", iconType: "prayer", url: "after-prayer.html" },
     { id: 4, title: "تسابيح", desc: "سبحان الله والحمد لله والله أكبر", iconBg: "#e9f5f8", iconColor: "#2980b9", iconType: "star", url: "tasabih.html" },
-    { id: 5, title: "أذكار النوم", desc: "أذكار تقال عند النوم", iconBg: "#eef1f6", iconColor: "#34495e", iconType: "moon", url: "sleep.html" },
-    { id: 6, title: "أذكار الاستيقاظ", desc: "أذكار تقال عند الاستيقاظ من النوم", iconBg: "#fef9e7", iconColor: "#f39c12", iconType: "sun", url: "waking-up.html" },
+    { id: 5, title: "اذكار النوم", desc: "أذكار تقال عند النوم", iconBg: "#eef1f6", iconColor: "#34495e", iconType: "moon", url: "sleep.html" },
+    { id: 6, title: "اذكار الاستيقاظ", desc: "أذكار تقال عند الاستيقاظ من النوم", iconBg: "#fef9e7", iconColor: "#f39c12", iconType: "sun", url: "waking-up.html" },
     { id: 7, title: "جوامع الدعاء", desc: "أدعية جامعة مأثورة عن النبي ﷺ", iconBg: "#fdedec", iconColor: "#e74c3c", iconType: "heart", url: "jawame-alduaa.html" },
-    { id: 8, title: "أدعية نبوية", desc: "أدعية واردة عن النبي ﷺ", iconBg: "#edf6f2", iconColor: "#0c5943", iconType: "book", url: "prophetic-dua.html" },
-    { id: 9, title: "الأدعية القرآنية", desc: "أدعية من كتاب الله العزيز", iconBg: "#edf6f2", iconColor: "#0c5943", iconType: "quran", url: "quranic-dua.html" },
-    { id: 10, title: "أدعية الأنبياء", desc: "أدعية الأنبياء والمرسلين", iconBg: "#f4f6f6", iconColor: "#16a085", iconType: "sparkles", url: "prophets-dua.html" },
-    { id: 11, title: "أذكار الأذان", desc: "ما يقال عند سماع الأذان", iconBg: "#eaeded", iconColor: "#7f8c8d", iconType: "volume", url: "athan.html" },
-    { id: 12, title: "أذكار المسجد", desc: "أذكار دخول وخروج المسجد", iconBg: "#edf6f2", iconColor: "#0c5943", iconType: "mosque", url: "mosque.html" },
-    { id: 13, title: "أذكار متفرقة", desc: "أذكار لمناسبات متعددة", iconBg: "#f4f6f7", iconColor: "#2c3e50", iconType: "grid", url: "misc.html" },
-    { id: 14, title: "أذكار الوضوء", desc: "ما يقال عند الوضوء", iconBg: "#e8f8f5", iconColor: "#1abc9c", iconType: "water", url: "wudu.html" },
-    { id: 15, title: "أذكار المنزل", desc: "أذكار الدخول والخروج من المنزل", iconBg: "#f9ebea", iconColor: "#c0392b", iconType: "home", url: "home-azkar.html" },
-    { id: 16, title: "أسماء الله الحسنى", desc: "الأسماء الحسنى لله تعالى", iconBg: "#fef5e7", iconColor: "#d35400", iconType: "crown", url: "allah-names.html" },
+    { id: 8, title: "اذعية نبوية", desc: "أدعية واردة عن النبي ﷺ", iconBg: "#edf6f2", iconColor: "#0c5943", iconType: "book", url: "prophetic-dua.html" },
+    { id: 9, title: "الادعية القرآنية", desc: "أدعية من كتاب الله العزيز", iconBg: "#edf6f2", iconColor: "#0c5943", iconType: "quran", url: "quranic-dua.html" },
+    { id: 10, title: "ادعية الأنبياء", desc: "أدعية الأنبياء والمرسلين", iconBg: "#f4f6f6", iconColor: "#16a085", iconType: "sparkles", url: "prophets-dua.html" },
+    { id: 11, title: "اذكار الأذان", desc: "ما يقال عند سماع الأذان", iconBg: "#eaeded", iconColor: "#7f8c8d", iconType: "volume", url: "athan.html" },
+    { id: 12, title: "اذكار المسجد", desc: "أذكار دخول وخروج المسجد", iconBg: "#edf6f2", iconColor: "#0c5943", iconType: "mosque", url: "mosque.html" },
+    { id: 13, title: "اذكار متفرقة", desc: "أذكار لمناسبات متعددة", iconBg: "#f4f6f7", iconColor: "#2c3e50", iconType: "grid", url: "misc.html" },
+    { id: 14, title: "اذكار الوضوء", desc: "ما يقال عند الوضوء", iconBg: "#e8f8f5", iconColor: "#1abc9c", iconType: "water", url: "wudu.html" },
+    { id: 15, title: "اذكار المنزل", desc: "أذكار الدخول والخروج من المنزل", iconBg: "#f9ebea", iconColor: "#c0392b", iconType: "home", url: "home-azkar.html" },
+    { id: 16, title: "اسماء الله الحسنى", desc: "الأسماء الحسنى لله تعالى", iconBg: "#fef5e7", iconColor: "#d35400", iconType: "crown", url: "allah-names.html" },
     { id: 17, title: "فضل الذكر", desc: "أحاديث في فضل ذكر الله", iconBg: "#ebf5fb", iconColor: "#2980b9", iconType: "diamond", url: "dhikr-virtue.html" },
     { id: 18, title: "فضل الدعاء", desc: "أحاديث في فضل الدعاء والتضرع", iconBg: "#efebe9", iconColor: "#5d4037", iconType: "hands", url: "dua-virtue.html" },
-    { id: 19, title: "أذكار الحج والعمرة", desc: "الأدعية النبوية والأذكار في محطات الحج ومواقيته", iconBg: "#f5eef8", iconColor: "#8e44ad", iconType: "kaaba", url: "hajj-umrah.html" },
+    { id: 19, title: "اذكار الحج والعمرة", desc: "الأدعية النبوية والأذكار في محطات الحج ومواقيته", iconBg: "#f5eef8", iconColor: "#8e44ad", iconType: "kaaba", url: "hajj-umrah.html" },
     { id: 20, title: "الرقية الشرعية", desc: "من القرآن والسنة - أسباب شرعية للعلاج والاستشفاء", iconBg: "#f8f4f0", iconColor: "#6d4c41", iconType: "shield", url: "ruqyah.html" },
-    { id: 21, title: "أذكار الطعام والشراب", desc: "ما يقال عند الأكل والشرب والضيافة", iconBg: "#fef3e2", iconColor: "#e67e22", iconType: "utensils", url: "food-azkar.html" }
+    { id: 21, title: "اذكار الطعام والشراب", desc: "ما يقال عند الأكل والشرب والضيافة", iconBg: "#fef3e2", iconColor: "#e67e22", iconType: "utensils", url: "food-azkar.html" }
 ];
 
 // ============ خريطة الأيقونات ============

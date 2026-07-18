@@ -27,7 +27,11 @@ const azkarCategories = [
     { id: 15, title: "أذكار المنزل", desc: "أذكار الدخول والخروج من المنزل", iconBg: "#f9ebea", iconColor: "#c0392b", iconType: "home", url: "home-azkar.html" },
     { id: 16, title: "أسماء الله الحسنى", desc: "الأسماء الحسنى لله تعالى", iconBg: "#fef5e7", iconColor: "#d35400", iconType: "crown", url: "allah-names.html" },
     { id: 17, title: "فضل الذكر", desc: "أحاديث في فضل ذكر الله", iconBg: "#ebf5fb", iconColor: "#2980b9", iconType: "diamond", url: "dhikr-virtue.html" },
-    { id: 18, title: "فضل الدعاء", desc: "أحاديث في فضل الدعاء والتضرع", iconBg: "#efebe9", iconColor: "#5d4037", iconType: "hands", url: "dua-virtue.html" }
+    { id: 18, title: "فضل الدعاء", desc: "أحاديث في فضل الدعاء والتضرع", iconBg: "#efebe9", iconColor: "#5d4037", iconType: "hands", url: "dua-virtue.html" },
+    { id: 19, title: "أذكار الحج والعمرة", desc: "الأدعية النبوية والأذكار في محطات الحج ومواقيت", iconBg: "#f5eef8", iconColor: "#8e44ad", iconType: "kaaba", url: "hajj-umrah.html" },
+    { id: 20, title: "الرقية الشرعية", desc: "من القرآن والسنة - أسباب شرعية للعلاج والاستشفاء", iconBg: "#f8f4f0", iconColor: "#6d4c41", iconType: "shield", url: "ruqyah.html" },
+    { id: 21, title: "أذكار الطعام والشراب", desc: "ما يقال عند الأكل والشرب والضيافة", iconBg: "#fef3e2", iconColor: "#e67e22", iconType: "utensils", url: "food-azkar.html" },
+    { id: 22, title: "دعاء ختم القرآن", desc: "الأدعية المأثورة عند ختم القرآن الكريم", iconBg: "#f0e6ff", iconColor: "#7c3aed", iconType: "quran-khatm", url: "quran-khatm.html" }
 ];
 
 // ============ خريطة الأيقونات ============
@@ -49,7 +53,11 @@ const iconMap = {
     home: "fa-solid fa-house",
     crown: "fa-solid fa-crown",
     diamond: "fa-solid fa-gem",
-    hands: "fa-solid fa-hands-praying"
+    hands: "fa-solid fa-hands-praying",
+    kaaba: "fa-solid fa-kaaba",
+    shield: "fa-solid fa-shield-halved",
+    utensils: "fa-solid fa-utensils",
+    "quran-khatm": "fa-solid fa-book-quran"
 };
 
 // ============ عناصر DOM ============

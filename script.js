@@ -5,6 +5,9 @@
  * =====================================================
  */
 
+// الرابط الأساسي للموقع
+const BASE_URL = "https://adkari.org";
+
 // ============ مصفوفة التصنيفات ============
 const azkarCategories = [
     { id: 1, title: "أذكار الصباح", desc: "أذكار تقال في الصباح بعد الفجر", iconBg: "#edf6f2", iconColor: "#0c5943", iconType: "sunrise", url: "sabah.html" },
@@ -164,7 +167,7 @@ function handleSearch() {
     resultsContainer.innerHTML = matchedCategories.map(cat => {
         const iconClass = iconMap[cat.iconType] || "fa-solid fa-bookmark";
         return `
-            <a href="posts/${cat.url}" class="category-card">
+            <a href="${BASE_URL}/posts/${cat.url}" class="category-card">
                 <div class="card-content">
                     <h4>${cat.title}</h4>
                     <p>${cat.desc}</p>

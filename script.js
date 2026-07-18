@@ -77,7 +77,7 @@ function displayCategories() {
     categoriesGrid.innerHTML = azkarCategories.map(category => {
         const iconClass = iconMap[category.iconType] || "fa-solid fa-bookmark";
         return `
-            <a href="posts/${category.url}" class="category-card">
+            <a href="${BASE_URL}/posts/${category.url}" class="category-card">
                 <div class="card-content">
                     <h4>${category.title}</h4>
                     <p>${category.desc}</p>

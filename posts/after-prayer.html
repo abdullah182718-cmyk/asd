@@ -72,12 +72,7 @@
             AzkarApp.resetCount(index, STORAGE_KEY, render);
         }
 
-        document.addEventListener('DOMContentLoaded', () => {
-            if (counts.length !== azkarData.length) {
-                counts = AzkarApp.loadCounts(STORAGE_KEY, azkarData.length);
-            }
-            render();
-        });
+        render();
     })();
     </script>
 </body>

@@ -1,9 +1,12 @@
 /**
  * =====================================================
  * أذكاري - حصنك اليومي
- * سكربت الصفحة الرئيسية
+ * سكربت الصفحة الرئيسية (نسخة محسنة لمحركات البحث SEO)
  * =====================================================
  */
+
+// الرابط الأساسي للموقع (يضمن بناء روابط مطلقة تبدأ من جذر الموقع لمنع مشاكل التوجيه)
+const BASE_URL = window.location.origin;
 
 // ============ مصفوفة التصنيفات ============
 const azkarCategories = [
@@ -82,7 +85,7 @@ function displayCategories() {
     categoriesGrid.innerHTML = azkarCategories.map(category => {
         const iconClass = iconMap[category.iconType] || "fa-solid fa-bookmark";
         return `
-            <a href="posts/${category.url}" class="category-card">
+            <a href="${BASE_URL}/posts/${category.url}" class="category-card">
                 <div class="card-content">
                     <h4>${category.title}</h4>
                     <p>${category.desc}</p>
@@ -172,7 +175,7 @@ function handleSearch() {
     resultsContainer.innerHTML = matchedCategories.map(cat => {
         const iconClass = iconMap[cat.iconType] || "fa-solid fa-bookmark";
         return `
-            <a href="posts/${cat.url}" class="category-card">
+            <a href="${BASE_URL}/posts/${cat.url}" class="category-card">
                 <div class="card-content">
                     <h4>${cat.title}</h4>
                     <p>${cat.desc}</p>
@@ -183,4 +186,4 @@ function handleSearch() {
             </a>
         `;
     }).join('');
-}
+        }

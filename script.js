@@ -6,8 +6,7 @@
  */
 
 // الرابط الأساسي للموقع (يضمن بناء روابط مطلقة تبدأ من جذر الموقع لمنع مشاكل التوجيه)
-const BASE_URL = window.location.origin;
-
+const BASE_URL = "https://adkari.org";
 // ============ مصفوفة التصنيفات ============
 const azkarCategories = [
     { id: 1, title: "اذكار الصباح", desc: "أذكار تقال في الصباح بعد الفجر", iconBg: "#edf6f2", iconColor: "#0c5943", iconType: "sunrise", url: "sabah.html" },

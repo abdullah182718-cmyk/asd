@@ -20,6 +20,12 @@
     --radius: 12px;
     --radius-lg: 16px;
     --font: 'Tajawal', system-ui, sans-serif;
+    
+    /* أبعاد ثابتة للأيقونات - تساعد في تقليل CLS */
+    --icon-size-sm: 20px;
+    --icon-size-md: 24px;
+    --icon-size-lg: 32px;
+    --icon-size-xl: 48px;
 }
 
 /* ============ إعادة التعيين ============ */
@@ -65,10 +71,11 @@ body {
     cursor: pointer;
     padding: 8px;
     border-radius: 8px;
-    transition: background 0.2s;
+    transition: opacity 0.2s;
+    will-change: opacity;
 }
 
-.header-btn:hover { background: var(--primary-light); }
+.header-btn:hover { opacity: 0.7; }
 
 /* ============ القائمة الجانبية ============ */
 .sidebar {
@@ -80,11 +87,12 @@ body {
     background: var(--bg);
     z-index: 200;
     padding: 20px;
-    transition: right 0.3s ease;
+    transition: transform 0.3s ease;
     box-shadow: -4px 0 20px rgba(0,0,0,0.08);
+    will-change: transform;
 }
 
-.sidebar.open { right: 0; }
+.sidebar.open { transform: translateX(-260px); }
 
 .sidebar-close {
     background: none;
@@ -112,15 +120,15 @@ body {
     color: var(--text);
     font-weight: 500;
     border-radius: var(--radius);
-    transition: background 0.2s, color 0.2s;
+    transition: opacity 0.2s;
+    will-change: opacity;
 }
 
 .sidebar-nav a i { color: var(--primary); font-size: 1.1rem; }
 
 .sidebar-nav a:hover,
 .sidebar-nav a.active {
-    background: var(--primary-light);
-    color: var(--primary);
+    opacity: 0.7;
 }
 
 .overlay {
@@ -130,12 +138,15 @@ body {
     z-index: 150;
     opacity: 0;
     visibility: hidden;
-    transition: opacity 0.3s, visibility 0.3s;
+    transition: opacity 0.3s;
+    will-change: opacity;
+    pointer-events: none;
 }
 
 .overlay.show {
     opacity: 1;
     visibility: visible;
+    pointer-events: auto;
 }
 
 /* ============ الحاوية ============ */
@@ -154,6 +165,8 @@ body {
 .hero-icon {
     width: 72px;
     height: 72px;
+    min-width: 72px;
+    min-height: 72px;
     background: var(--primary);
     color: #fff;
     border-radius: 50%;
@@ -162,6 +175,7 @@ body {
     justify-content: center;
     margin: 0 auto 20px;
     font-size: 2rem;
+    will-change: transform;
 }
 
 .hero-title {
@@ -197,10 +211,13 @@ body {
     background: var(--bg);
     color: var(--text);
     outline: none;
-    transition: border-color 0.2s;
+    transition: border-color 0.2s, box-shadow 0.2s;
 }
 
-.search-box input:focus { border-color: var(--primary); }
+.search-box input:focus { 
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px var(--primary-light);
+}
 
 .search-box .search-icon {
     position: absolute;
@@ -254,13 +271,17 @@ body {
     align-items: center;
     text-decoration: none;
     color: inherit;
-    transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+    transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s, opacity 0.2s;
+    will-change: transform;
 }
 
 .category-card:hover {
     transform: translateY(-2px);
     box-shadow: var(--shadow-lg);
-    border-color: var(--primary-light);
+}
+
+.category-card:active {
+    transform: translateY(0);
 }
 
 .category-card h4 {
@@ -274,9 +295,12 @@ body {
     color: var(--text-muted);
 }
 
-.category-icon {
-    width: 48px;
-    height: 48px;
+.category-icon,
+.card-icon {
+    width: var(--icon-size-xl);
+    height: var(--icon-size-xl);
+    min-width: var(--icon-size-xl);
+    min-height: var(--icon-size-xl);
     background: var(--primary);
     color: #fff;
     border-radius: var(--radius);
@@ -285,6 +309,7 @@ body {
     justify-content: center;
     font-size: 1.2rem;
     flex-shrink: 0;
+    will-change: transform;
 }
 
 /* ============ الفوتر ============ */
@@ -324,10 +349,11 @@ body {
     padding: 8px 16px;
     border-radius: 20px;
     background: var(--primary-light);
-    transition: background 0.2s;
+    transition: opacity 0.2s;
+    will-change: opacity;
 }
 
-.back-link:hover { background: #a7f3d0; }
+.back-link:hover { opacity: 0.8; }
 
 .category-badge {
     background: var(--primary-light);
@@ -414,14 +440,19 @@ body.error-page {
     border-radius: 50px;
     text-decoration: none;
     font-weight: 600;
-    transition: background 0.2s, transform 0.2s;
+    transition: transform 0.2s, box-shadow 0.2s;
     border: none;
     cursor: pointer;
+    will-change: transform;
 }
 
 .home-btn:hover {
-    background: var(--primary-dark);
     transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+.home-btn:active {
+    transform: translateY(0);
 }
 
 .home-btn i { color: #fff; }
@@ -453,10 +484,39 @@ body.error-page {
     text-decoration: none;
     font-size: 0.8rem;
     font-weight: 500;
-    transition: background 0.2s;
+    transition: opacity 0.2s;
+    will-change: opacity;
 }
 
-.suggestions-links a:hover { background: #a7f3d0; }
+.suggestions-links a:hover { opacity: 0.8; }
 
 /* ============ مساعد ============ */
 .hidden { display: none !important; }
+
+/* ============ أنماط الأيقونات SVG ============ */
+/* دعم SVG inline من icons.js */
+i svg {
+    width: 1em;
+    height: 1em;
+    display: block;
+}
+
+/* أيقونات بأحجام محددة */
+i.fa-sm svg { width: 0.875em; height: 0.875em; }
+i.fa-lg svg { width: 1.25em; height: 1.25em; }
+i.fa-xl svg { width: 1.5em; height: 1.5em; }
+
+/* أيقونة الهيدر */
+.header-logo i svg,
+.header-btn i svg {
+    width: 1em;
+    height: 1em;
+    display: inline-block;
+}
+
+/* أيقونة الهيرو */
+.hero-icon i svg,
+.hero-icon svg {
+    width: 1em;
+    height: 1em;
+}

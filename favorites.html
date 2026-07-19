@@ -5,10 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
     <title>المفضلة | حصنك اليومي</title>
     <link rel="icon" type="image/x-icon" href="icon.ico">
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="posts/style.css">
+    
+    <!-- Preconnect لتحسين سرعة تحميل الخطوط -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    
+    <!-- Preload للخطوط الأساسية -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap&display=swap">
+    
+    <!-- تحميل الخطوط مع font-display: swap لمنع CLS -->
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap"></noscript>
+    
+    <!-- FontAwesome مع تحميل متأخر -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+    
+    <link rel="stylesheet" href="style.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="style.css"></noscript>
+    <link rel="stylesheet" href="posts/style.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="posts/style.css"></noscript>
 </head>
 <body>
     <div class="azkar-page">
@@ -27,6 +44,7 @@
 
     <div id="toastMsg" class="toast-msg"></div>
 
+    <script src="posts/icons.js"></script>
     <script src="posts/shared.js"></script>
     <script>
     (function() {
